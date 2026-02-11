@@ -34,3 +34,41 @@ sim = list1.find("#")
 pos_sim = len(list1) - sim - 1
 print(pos_sim)
 
+#Магические Методы
+
+# add(self, other) — операция сложения (a + b);
+# sub(self, other) — операция вычитания (a – b);
+# mul(self, other) — операция умножения (a * b);
+# truediv(self, other) — операция деления (a / b);
+# floordiv(self, other) — целочисленное деление (a // b);
+# mod(self, other) — остаток от деления (a % b);
+# pow(self, other[, modulo]) — возведение в степень (a ** b).
+# bool(self) — возвращает True или False, определяет значение истинности объекта, используется в условиях и вызовах bool().
+# eq(self, other) — определяет поведение для оператора равенства (==);
+# ne(self, other) — определяет поведение для оператора неравенства (!=);
+# lt(self, other) — определяет поведение для оператора меньше (<);
+# gt(self, other) — определяет поведение для оператора больше (>);
+# ge(self, other) — определяет поведение для оператора больше или равно (>=).
+
+class Magazin:
+    def __init__(self,tovar = 0):
+        self.tovar = tovar
+
+    def __add__(self, other):
+        if isinstance(other,Magazin):
+            return Magazin(self.tovar + other.tovar)
+        elif isinstance(other,int):
+            return Magazin(self.tovar + other)
+        return Magazin(self.tovar + other)
+
+    def __str__(self):
+        return (f"Товаров = {self.tovar}")
+    
+m1 = Magazin(10)
+m2 = Magazin(15)
+
+m3 = m1 + m2
+print(m3)
+
+m4 = m1 + 10
+print(m4)
