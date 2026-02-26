@@ -3,6 +3,7 @@ import random
 class Karti:
     k_mas = ["Черви", "Буби", "Крести", "Вини"]
     k_num = ["6", "7", "8", "9", "10", "Валет", "Дама", "Король", "Туз"]
+
     def __init__(self, mast, num):
         self.mast = mast
         self.num = num
@@ -11,7 +12,7 @@ class Karti:
         return (f"{self.num } {self.mast}")
 
     def __repr__(self):
-        return (f"Карта({self.mast} {self.nnum })")
+        return (f"Карта {self.mast} {self.nnum }")
 
     def __eq__(self, other):
         if self.mast == other.mast:
@@ -39,21 +40,21 @@ choice = input("Карта 1 или 2? = ")
 if choice == "1":
     play = card1
     pc = card3
-    print(f"Ты выбрал карту под номером 1 и это = {card1}")
+    print(f"Вы выбрали карту под номером 1 и это = {card1}")
     print(f"Карта под номером 2 была = {card2}")
 else:
     play = card2
     pc = card3
-    print(f"Ты выбрал карту под номером 2 и это = {card2}")
+    print(f"Вы выбрали карту под номером 2 и это = {card2}")
     print(f"Карта под номером 1 была = {card1}")
 
 print("------Итоги------")
 print(f"Ваша карта = {play}")
 print(f"Карта компьютера = {pc}")
 print(f"Масти одинаковы? = {play == pc}")
-print(f"Сила вашей карты = {len(play)}")
-print(f"Сила карты компьютера = {len(pc)}")
-print(f"Общая сила = {play + pc}")
+print(f"Очки вашей карты = {len(play)}")
+print(f"Очки карты компьютера = {len(pc)}")
+print(f"Всего очков = {play + pc}")
 
 while True:
     if len(play) == len(pc):
