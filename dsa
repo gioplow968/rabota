@@ -1,43 +1,47 @@
 import random
-
+import time
 class Karti:
     k_mas = ["Черви", "Буби", "Крести", "Вини"]
-    k_num = ["6", "7", "8", "9", "10", "Валет", "Дама", "Король", "Туз"]
+    k_num = [6,7,8,9,10,"Валет", "Дама", "Король", "Туз"]
 
     def __init__(self, mast, num):
-        self.mast = mast
+        self.mast = mast            #При создании карты
         self.num = num
 
     def __str__(self):
-        return (f"{self.num } {self.mast}")
+        return (f"{self.num } {self.mast}") #При преобразовании карты в строку
 
-    def __repr__(self):
-        return (f"Карта {self.mast} {self.nnum }")
+    def __gt__(self, other):
+        return len(self) > len(other) #При проверке условия
 
     def __eq__(self, other):
-        if self.mast == other.mast:
+        if self.mast == other.mast:     #При сравнивании карт
             return ("Да")
         else:
             return ("Нет")
 
     def __len__(self):
-        if self.num  == "Валет": return 11
-        if self.num  == "Дама": return 12
-        if self.num  == "Король": return 13
-        if self.num  == "Туз": return 14
+        if self.num  == "Валет":
+            return 11
+        if self.num  == "Дама":
+            return 12
+        if self.num  == "Король":   #При использовании len для проверки
+            return 13
+        if self.num  == "Туз":
+            return 14
         return int(self.num )
 
     def __add__(self, other):
-        return len(self) + len(other)
+        return len(self) + len(other) #При сложении
 
 card1 = Karti(random.choice(Karti.k_mas), random.choice(Karti.k_num))
 card2 = Karti(random.choice(Karti.k_mas), random.choice(Karti.k_num))
 card3 = Karti(random.choice(Karti.k_mas), random.choice(Karti.k_num))
 
 print("Выбери карту, проверь свою удачу!")
-choice = input("Карта 1 или 2? = ")
+vib_k = input("Выберите карту, 1 или 2? = ")
 
-if choice == "1":
+if vib_k == "1":
     play = card1
     pc = card3
     print(f"Вы выбрали карту под номером 1 и это = {card1}")
@@ -49,20 +53,26 @@ else:
     print(f"Карта под номером 1 была = {card1}")
 
 print("------Итоги------")
-print(f"Ваша карта = {play}")
-print(f"Карта компьютера = {pc}")
-print(f"Масти одинаковы? = {play == pc}")
-print(f"Очки вашей карты = {len(play)}")
-print(f"Очки карты компьютера = {len(pc)}")
-print(f"Всего очков = {play + pc}")
-
+print(f"Ваша карта = {play}")  #_str_
+time.sleep(2)
+print(f"Карта компьютера = {pc}")  #_str_
+time.sleep(2)
+print(f"Масти одинаковы? = {play == pc}") #_eq_
+time.sleep(2)
+print(f"Очки вашей карты = {len(play)}") #_len_
+time.sleep(2)
+print(f"Очки карты компьютера = {len(pc)}") #_len_
+time.sleep(2)
+print(f"Всего очков = {play + pc}") #_add_
+time.sleep(2)
+print("-----ПОБЕДИТЕЛЬ-----")
 while True:
     if len(play) == len(pc):
-        print("Сила карт равна!Ничья!")
+        print("Очки карт равны!Ничья!")
         break
     else:
-        if len(play) > len(pc):
-            print("Вы победили!")
+        if play > pc:
+            print("Вы победили!Удача на вашей стороне!")
             break
         else:
             print("Вы проиграли!Победа ПК!")
