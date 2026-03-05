@@ -123,3 +123,32 @@ print("ny.array")
 # print("ny.unique")
 # arr = ny.array([1,1, 2, 2, 3, 3, 3, 4]) #Выводит значения только один раз
 # print(ny.unique(arr))
+
+
+
+# import numpy as np
+# 
+# arr1 = np.random.randint(0,5,size = (3,3))
+# print(arr1)
+
+# d1 = 0
+# d2 = 0
+# d3 = 0
+# for i in range(3):
+#     d1 += arr1[i][i]
+# for i in range(3):
+#     d2 += arr1[i][2-i]
+# for i in range(3):
+#     d3 += arr1[i][1]
+#
+# print(f"Слева на право = {d1}")
+# print(f"Cправа на лево = {d2}")
+# print(f"Центр = {d3}")
+#2 Способ
+# d1 = np.trace(arr1)
+# d2 = np.trace(np.fliplr(arr1))
+# d3 = np.sum(arr1[:,1])
+# 
+# print(f"Слева на право = {d1}")
+# print(f"Cправа на лево = {d2}")
+# print(f"Центр = {d3}")
