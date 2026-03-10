@@ -1,0 +1,20 @@
+import numpy as np
+
+
+class Weather:
+    def show(self):
+        self.temp = [-2, 1, -4, 5]
+        self.sir = [74, 82, 77, 89]
+        self.snow = [10, 7, 2, 6]
+        self.day = ["Пн", "Вт", "Ср", "Чт"]
+        print("---Погода за 4 дня---")
+
+        for i in range(4):
+            print(f"{self.day[i]}: {self.temp[i]}C, {self.sir[i]}%, снег {self.snow[i]}см")
+        print("---Результаты Прогноза---")
+        print(f"Максимальная t: {np.max(self.temp)}C")
+        print(f"Минимальная t: {np.min(self.temp)}C")
+        print(f"Cредняя влажность: {np.mean(self.sir)}")
+        print(f"Cредняя толщина снежного покрова: {np.mean(self.snow)}")
+w = Weather()
+w.show()
