@@ -1,0 +1,34 @@
+import random
+darr1 = [[random.randint(0,9) for x in range(3)] for y in range(3)]
+print(*darr1, sep='\n')
+
+squares = []
+for i in range(10):
+    squares.append(i**2)
+print(squares)
+
+names = ['Мир', 'ПрИВеТ', 'ДРуЗьЯ']
+upper_names = [name.upper() for name in names]
+lower_names = [name.lower() for name in names]
+print(upper_names)
+print(lower_names)
+
+nested_list = [[1, 0, 3], [4,9], [6, 2, 8, 9]]
+flat_list = [item for sublist in nested_list for item in sublist]
+print(flat_list)
+
+coordinates = [(x, y) for x in range(3) for y in range(2)]
+print(coordinates)
+
+even_numbers = [x for x in range(10) if x % 2 == 0]
+even_numbers1 = [x for x in range(10) if x % 2 == 1]
+print(even_numbers)
+print(even_numbers1)
+
+words = ['Мир', 'ПрИВеТ', 'ДРуЗьЯ']
+words1 = [word for word in words if len(word) > 3]
+print(words1)
+
+numbers = [1, 2, 3, 4, 5]
+labeled = ["Чет" if n % 2 == 0 else "Нечет" for n in numbers]
+print(labeled)
