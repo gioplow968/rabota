@@ -32,3 +32,62 @@ print(d.sort_index())
 
 z = pd.Series([1,"Hello",3,4.5,False])
 print(z.apply(type))
+
+
+
+import pandas as pd
+import numpy as np
+
+# Создаем данные
+work = {
+    'name': ['Анна',None, 'Евгения', 'Виктор', 'Евгений', 'Дмитрий', 'Виктория','Валентин'],
+    'age': [25, 30, 25, None,48, None, 29, 59],
+    'op':[5,7,2,None,5,8,1,18]
+}
+
+rez = pd.DataFrame(work)
+print(rez)
+print('------')
+
+print("Первые 2 строки:")
+print(rez.head(2))
+print('------')
+print("Последние 2 строки:")
+print(rez.tail(2))
+print('------')
+
+print('Стат. Описание')
+print(rez.describe())
+print('------')
+
+print(rez.dropna())#Строки
+print('------')
+print(rez.dropna(axis = 1))#Столбцы
+print('------')
+
+print(rez.fillna(0))
+print('------')
+print(rez.groupby("age")['op'].mean)
+print('------')
+print(rez.groupby(["age", "op"]).size())
+
+print(rez.sort_values('age'))
+print('------')
+print(rez.sort_values("op", ascending=False))
+print('------')
+
+print(rez.sample(3))
+print('------')
+print(rez.sample(frac=0.3))
+print('------')
+
+print(rez['age'].value_counts())
+print('------')
+print(rez.duplicated())
+print('------')
+print(rez.duplicated('age').sum())
+print('------')
+
+print(rez.rename(columns={"age": "vozr"}))
+print('------')
+print(rez["name"].str.title())
