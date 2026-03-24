@@ -1,0 +1,49 @@
+import openpyxl
+import pandas as pd
+
+df = pd.read_excel('work.xlsx')
+print(df)
+
+print("--------")
+sb = ['Предмет1','Предмет2','Предмет3','Предмет4','Предмет5',]
+print(f"Средний балл = {df[sb].mean().mean():.2f}")
+
+print("--------")
+print("Без троек :")
+tri = df[(df[sb] !=3).all (axis=1)]
+print(tri[["name",*sb]])
+
+
+print("--------")
+print("Без стипендии")
+step = df[df['stepen'] == 0]
+print(step[["name"]])
+
+print("--------")
+print("Из Шумерли со средним балом >4.5")
+shum = df[(df["city"] == "Шумерля") & (df[sb].mean(axis = 1) > 4.5)]
+print(shum[["name"]])
+
+print("--------")
+print("Средний бал по всемм предметам")
+print(f'{df["Предмет1"].mean():.2f},{df["Предмет2"].mean():.2f},{df["Предмет3"].mean():.2f},{df["Предмет4"].mean():.2f},{df["Предмет5"].mean():.2f}')
+
+print("--------")
+print("Иногородние у которых есть 5")
+ino = df[(df["city"] != "Шумерля") & ((df[['Предмет1','Предмет2','Предмет3','Предмет4','Предмет5',]] == 5).any(axis=1))]
+print(ino[["name"]])
+
+print("--------")
+print("Cтуденты старше 16 лет не получающие стипендию")
+bez = df[(df["age"]>=17) & (df["stepen"] == 0)]
+print(bez[["name"]])
+
+print("--------")
+print("Без троек и двоек")
+un = df[(df[sb] >=4).all (axis=1)]
+print(un[['name']])
+
+print("--------")
+print("Студенты у которых по предмету 1 = 5, а по предмету2 4 или 5")
+bol = df[(df["Предмет1"] == 5) & (df["Предмет2"] >= 4)]
+print(bol[["name"]])
