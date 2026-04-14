@@ -1,0 +1,58 @@
+# import matplotlib.pyplot  as plt
+# import numpy as np
+#
+# ck = 20
+# yg = np.radians(45)
+# mas = 11
+# dlin = 20
+# pad = 9.81
+#
+# per = 20/3.6
+# v1 = per * np.cos(yg)
+# v2 = per * np.sin(yg)
+#
+# t = 2 * v2 / pad
+# L = v1 * t
+#
+# t1 = np.linspace(0,t,100)
+# x = v1 * t1
+# y = v2 * t1 - 0.5 * pad * t1**2
+#
+# plt.plot(x,y,label = f"Расстояние = {L:.2f}м")
+# plt.scatter([0,L],[0,0],color=["green","red"],zorder = 5)
+# plt.xlabel("Растояние")
+# plt.ylabel("Высота")
+# plt.grid(True)
+# plt.legend()
+# plt.axis('equal')
+# plt.show()
+
+# my_balance = 10000
+# f1 = 2000000 # 20%
+# f2 = 20000000 # 22%
+# f3 = 20000 #26%
+# d_bank = (f1+f2+f3)
+# 
+# p_f1 = (f1 * 0.20)
+# p_f2 = (f2 * 0.22)
+# p_f3 = (f3 * 0.26)
+# p_cb = (d_bank * 0.15)
+# 
+# d_f1 = (f1 + p_f1) /12
+# d_f2 = (f2 + p_f2) /12
+# d_f3 = (f3 + p_f3) /12
+# d_bank1 = (p_cb + d_bank) /12
+# 
+# prib = (d_f1+d_f2+d_f3) - d_bank1
+# 
+# os_f1 = (f1 + p_f1)
+# os_f2 = (f2 + p_f2)
+# os_f3 = (f3 + p_f3)
+# 
+# zar = 0
+# for i in range(12):
+#     zar = zar +  prib
+#     os_f1 -= d_f1
+#     os_f2 -= d_f2
+#     os_f3 -= d_f3
+#     print(f"Месяц {i+1}: {zar:.0f} руб.  /  Долг1 = {os_f1:.0f} /  Долг2 = {os_f2:.0f}  /  Долг3 = {os_f3:.0f}  /")
