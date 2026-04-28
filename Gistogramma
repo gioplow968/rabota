@@ -17,3 +17,36 @@ ylabel("Количество")
 xlabel("День")
 plt.legend("green",labels = "Покупка")
 plt.show()
+
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+from tabulate import tabulate
+from pandas.core.methods.selectn import DataFrame
+from prettytable import PrettyTable
+
+# df = sns.load_dataset('titanic')
+# plt.figure(figsize=(6, 4))
+# sns.histplot(data=df)
+# plt.show()
+#
+# plt.figure(figsize=(6, 4))
+# sns.scatterplot(data=df, x="bill_length_mm", y="bill_depth_mm")
+# plt.show()
+
+# dt = {
+#     "id":[1,2,3],
+#     "Фамилия":["Иванов","Петров","Генадьев"],
+#     "Должность":["Слесарь","Директор","Инженер"]
+# }
+
+# dt1 = pd.DataFrame(dt)
+# print(tabulate(dt1,headers="keys",tablefmt="grid"))
+
+# tb = PrettyTable(["id","Фамилия","Должность"])
+# tb.add_row([1,"Иванов","Слесарь"])
+# tb.add_row([2,"Петров","Директор"])
+# tb.add_row([3,"Генадьев","Инженер"])
+# print(tb)
