@@ -1,0 +1,8 @@
+import requests
+
+city = input("Введите город = ")
+
+res = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city}&lang=ru&units=metric&appid=2b90dadc5b61311fdf9aee571ac8282b")
+rez = res.json()
+
+print(f"{rez['name']}: {rez['main']['temp']}°C, {rez['weather'][0]['description']}")
