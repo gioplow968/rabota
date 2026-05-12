@@ -51,6 +51,43 @@ for j in schet:
 
 print(itog)
 
+n, k, m = map(int, input().split())
+
+max9 = 0
+for i in range(n):
+    max9 = max9 * 9 + 8
+
+if max9 % 2 == 1:
+    max9 -= 1
+
+min9 = 1
+for i in range(n - 1):
+    min9 = min9 * 9
+
+x = max9
+while x >= min9:
+    t = ''
+    y = x
+    while y:
+        t = str(y % 3) + t
+        y //= 3
+    if t == '':
+        t = '0'
+
+    if t.count('2') == k:
+        i = 0
+        while i < len(t) and t[i] == '0':
+            i += 1
+        if i < len(t) and t[i + 1:].count('0') == m:
+            r = ''
+            y = x
+            while y:
+                r = str(y % 9) + r
+                y //= 9
+            print(r)
+            break
+    x -= 2
+
 
 
 
