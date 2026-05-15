@@ -88,6 +88,16 @@ while x >= min9:
             break
     x -= 2
 
+import scipy.stats as sp
+import numpy as np
+from scipy.signal import chirp, spectrogram
+import matplotlib.pyplot as plt
+
+a = np.linspace(10,15,300)
+b = chirp(a,f0=6,f1=4,t1=3,method="linear")
+plt.plot(a,b)
+plt.title("Linear")
+plt.show()
 
 
 
