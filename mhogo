@@ -1,0 +1,46 @@
+# from moviepy import VideoFileClip
+#
+# print("1. Загружаем и обрезаем видео")
+# clip = VideoFileClip("50.mp4")
+# print("2.Обрезаем видео")
+# clip = clip.subclipped(37, 47)
+# print("3.Изменяем размер")
+# clip = clip.resized(width=480)
+# print("4. Сохраняем результат...")
+# clip.write_videofile("result.mp4")
+# print("Файл result.mp4 создан")
+
+
+# import calendar
+#
+# print(calendar.month(2026,5))
+# print("============")
+#
+# year = int(input("Введите год календаря = "))
+# month = int(input("Введите номер месяца = "))
+# day = calendar.monthrange(year,month)[1]
+# print("-----------")
+# print(calendar.month(year,month))
+# print("-----------")
+# print(f"В нем {day} день")
+
+
+# import datetime
+# import time
+# 
+# now = datetime.datetime.now()
+# print(f"Сейчас: {now}")
+# print(f"Время: {now.strftime('%H:%M:%S')}")
+# 
+# weekdays = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
+# print(f"День недели: {weekdays[now.weekday()]}")
+# 
+# day = datetime.datetime(2026, 11, 12)
+# data = day - now
+# print(f"До дня рождения: {data.days} дней")
+# 
+# print("\n Таймер на 5 секунд:")
+# for i in range(5, 0, -1):
+#     print(f"{i}...")
+#     time.sleep(1)
+# print("Стоп таймер!")
