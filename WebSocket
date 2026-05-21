@@ -1,1 +1,41 @@
+Клиент
+import asyncio
+import websockets
+import socket
 
+async def send_and_receive():
+    uri = "ws://localhost:8765"
+    async with websockets.connect(uri) as websocket:
+        message = "Привет, Мир!"
+        await websocket.send(message)
+        print(f"Отправили: {message}")
+
+    response = await websocket.recv()
+    print(f"Получили: {response}")
+
+async def main():
+    await send_and_receive()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+
+Cервер
+
+import asyncio
+import websockets
+
+async def echo(websocket):
+    async for message in websocket:
+        print(f"Получили: {message}")
+        await websocket.send(f"{message}")
+
+async def main():
+    server = await websockets.serve(echo, "localhost", 8765)
+    print("Сервер на ws://localhost:8765")
+    await asyncio.Future() #Ждет
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
