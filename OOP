@@ -1,0 +1,42 @@
+import calendar
+
+class Calendar:
+    def __init__(self, year, month):
+        self.year = year
+        self.month = month
+
+    def Month(self):
+        print("=============")
+        print("Календарь за месяц:")
+        a = calendar.month(self.year, self.month)
+        return a
+
+    def Vis_year(self):
+        print("=============")
+        print("Проверка на високосный год:")
+        b = calendar.isleap(self.year)
+        return b
+
+
+    def name_month(self):
+        print("=============")
+        print("Выводит названия всех 12 месяцев:")
+        c = [calendar.month_name[i] for i in range(1, 13)]
+        return c
+
+
+    def Year(self):
+        print("=============")
+        print("Календарь на год:")
+        print(calendar.calendar(self.year))
+
+
+year = int(input("Введите год = "))
+month = int(input("Введите месяц = "))
+
+cal = Calendar(year, month)
+
+print(cal.Month())
+print(cal.Vis_year())
+print(cal.name_month())
+cal.Year()
