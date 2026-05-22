@@ -1,9 +1,11 @@
 import calendar
+import datetime
 
 class Calendar:
-    def __init__(self, year, month):
+    def __init__(self, year, month,day):
         self.year = year
         self.month = month
+        self.day = day
 
     def Month(self):
         print("=============")
@@ -30,13 +32,22 @@ class Calendar:
         print("Календарь на год:")
         print(calendar.calendar(self.year))
 
+    def Day(self):
+        now = datetime.datetime.now()
+        day = datetime.datetime(self.year, self.month, self.day)
+        data = day - now
+        print(f"До дня рождения: {data.days} дней")
+#
+
 
 year = int(input("Введите год = "))
 month = int(input("Введите месяц = "))
+day = int(input("Введите день = "))
 
-cal = Calendar(year, month)
+cal = Calendar(year, month,day)
 
 print(cal.Month())
 print(cal.Vis_year())
 print(cal.name_month())
 cal.Year()
+cal.Day()
