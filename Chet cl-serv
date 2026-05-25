@@ -1,0 +1,36 @@
+import socket
+
+client = socket.socket()
+client.connect(("localhost",8889))
+
+
+num = (input("Введите числа = "))
+client.send(num.encode())
+
+res = client.recv(1024).decode()
+print(f"Количество чисел = {res}")
+
+client.close()
+
+
+import socket
+
+server = socket.socket()  # исправлено
+server.bind(("localhost", 8889))
+server.listen(1)
+print("Сервер работает")
+
+while True:
+    conn,addr = server.accept()
+    z = conn.recv(1024).decode()
+    num = list(map(int, z.split()))
+    chet = 0
+    hchet = 0
+    for n in num:
+        if n % 2 == 0:
+            chet += 1
+        else:
+            hchet += 1
+
+    conn.send(f"Четных = {chet}, нечетных = {hchet}".encode())
+    conn.close()
