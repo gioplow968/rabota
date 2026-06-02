@@ -16,3 +16,148 @@ for user in rez:
     })
 
 print(tabulate(rez, headers="keys", tablefmt="pretty"))
+
+
+import matplotlib.pyplot  as plt
+import numpy as np
+
+ck = 20
+yg = np.radians(45)
+mas = 11
+dlin = 20
+pad = 9.81
+
+per = 20/3.6
+v1 = per * np.cos(yg)
+v2 = per * np.sin(yg)
+
+t = 2 * v2 / pad
+L = v1 * t
+
+t1 = np.linspace(0,t,100)
+x = v1 * t1
+y = v2 * t1 - 0.5 * pad * t1**2
+
+plt.plot(x,y,label = f"Расстояние = {L:.2f}м")
+plt.scatter([0,L],[0,0],color=["green","red"],zorder = 5)
+plt.xlabel("Растояние")
+plt.ylabel("Высота")
+plt.grid(True)
+plt.legend()
+plt.axis('equal')
+plt.show()
+
+
+
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import xlabel, ylabel
+
+nov = 3038000
+mar = 606602
+tat = 4019606
+mor = 758400
+yla = 1164837
+chy = 1159768
+
+reg = ["Нижегородская обл.","Мари Эл","Татарстан","Мордовия","Ульяновская обл.","Чувашия"]
+z = [nov,mar,tat,mor,yla,chy]
+summa = sum(z)
+pr = [i/summa * 100 for i in z]
+color = ["red","blue","green","purple","gray","pink"]
+explode = (0,0,0,0,0,0.2)
+plt.figure(figsize=(8,6))
+
+plt.pie(z,labels=reg,colors=color,explode = explode,autopct=lambda p: f"{p:.1f}%")
+
+plt.title("Круговая диограмма регионов")
+plt.axis("equal")
+plt.legend()
+plt.show()
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+from tabulate import tabulate
+from pandas.core.methods.selectn import DataFrame
+from prettytable import PrettyTable
+
+dt = {
+    "id":[1,2,3],
+    "Фамилия":["Иванов","Петров","Генадьев"],
+    "Должность":["Слесарь","Директор","Инженер"]
+}
+
+dt1 = pd.DataFrame(dt)
+print(tabulate(dt1,headers="keys",tablefmt="grid"))
+
+tb = PrettyTable(["id","Фамилия","Должность"])
+tb.add_row([1,"Иванов","Слесарь"])
+tb.add_row([2,"Петров","Директор"])
+tb.add_row([3,"Генадьев","Инженер"])
+print(tb)
+
+
+import matplotlib.pyplot as plt
+
+
+z = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май']
+c = [2, 4, 3, 1, 7]
+plt.bar(z, c, label='Hi',alpha=0.5)
+plt.plot(z, c, color='green', marker='o', markersize=7)
+plt.xlabel('Месяц года')
+plt.ylabel('Прибыль, в млн руб.')
+plt.title('Пример столбчатой диаграммы')
+plt.legend()
+plt.show()
+
+vals = [24, 17, 53, 21, 35]
+labels = ["Ford", "Toyota", "BMW", "Audi", "Jaguar"]
+plt.pie(vals, labels=labels, autopct='%1.1f%%')
+plt.title("Распределение марок автомобилей на дороге")
+plt.show()
+
+
+import random
+darr1 = [[random.randint(0,9) for x in range(3)] for y in range(3)]
+print(*darr1, sep='\n')
+
+squares = []
+for i in range(10):
+    squares.append(i**2)
+print(squares)
+
+names = ['Мир', 'ПрИВеТ', 'ДРуЗьЯ']
+upper_names = [name.upper() for name in names]
+lower_names = [name.lower() for name in names]
+print(upper_names)
+print(lower_names)
+
+nested_list = [[1, 0, 3], [4,9], [6, 2, 8, 9]]
+flat_list = [item for sublist in nested_list for item in sublist]
+print(flat_list)
+
+coordinates = [(x, y) for x in range(3) for y in range(2)]
+print(coordinates)
+
+even_numbers = [x for x in range(10) if x % 2 == 0]
+even_numbers1 = [x for x in range(10) if x % 2 == 1]
+print(even_numbers)
+print(even_numbers1)
+
+words = ['Мир', 'ПрИВеТ', 'ДРуЗьЯ']
+words1 = [word for word in words if len(word) > 3]
+print(words1)
+
+numbers = [1, 2, 3, 4, 5]
+labeled = ["Чет" if n % 2 == 0 else "Нечет" for n in numbers]
+print(labeled)
+
+
+
+# ООП
+# st = "\"Не верю77! ск431аза7л \" - К.Станиславский"
+# no_digit = "".join(i for i in st if not i.isdigit())
+# rez = no_digit.replace('Не верю',"НЕ ВЕРЮ")
+# print(rez)
+
+
