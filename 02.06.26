@@ -1,1 +1,18 @@
+import json
+import urllib.request
+from tabulate import tabulate
 
+
+res = urllib.request.urlopen("http://jsonplaceholder.typicode.com/users")
+rez = json.load(res)
+
+dt = []
+for user in rez:
+    dt.append({
+        "id" :user["id"],
+        "username": user["username"],
+        "email": user["email"],
+        "city": user["address"]["city"],
+    })
+
+print(tabulate(rez, headers="keys", tablefmt="pretty"))
